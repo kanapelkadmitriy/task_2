@@ -127,7 +127,7 @@ public class XmlDocumentParserService implements DocumentParserService {
     }
 
     /*
-    Метод для создания класса
+    Метод для создания ClassBalance
      */
     private ClassBalance createClassBalance(List<String> cells, List<SummaryBalance> summaryBalances) {
         ClassBalance classBalance = ClassBalance.builder()
@@ -138,6 +138,9 @@ public class XmlDocumentParserService implements DocumentParserService {
         return classBalance;
     }
 
+    /*
+    Метод для создания SummaryBalance
+     */
     private SummaryBalance createSummaryBalance(List<String> cells, List<CommonBalance> commonBalances) {
         String accountId = cells.get(IDX_ACCOUNT_ID).trim();
         if (accountId.contains(".")) {
@@ -152,6 +155,9 @@ public class XmlDocumentParserService implements DocumentParserService {
         return summaryBalance;
     }
 
+    /*
+    Метод для создания CommonBalance
+     */
     private CommonBalance createCommonBalance(List<String> cells) {
         return CommonBalance.builder()
                 .accountId(Long.parseLong(cells.get(IDX_ACCOUNT_ID).trim()))
